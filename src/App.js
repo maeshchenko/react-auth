@@ -18,15 +18,24 @@ export default () => (
           <Link to="/public">Public Page</Link>
         </li>
         <li>
-          <Link to="/protected">Protected Page</Link>
+          <Link to="/private1">Protected Page</Link>
+        </li>
+        <li>
+          <Link to="/private2">Protected Page</Link>
+        </li>
+        <li>
+          <Link to="/private3">Protected Page</Link>
+        </li>
+        <li>
+          <Link to="/admin">Protected Page</Link>
         </li>
       </ul>
       <Route path="/public" component={Public} />
       <Route path="/login" component={Login} />
-      <Route path="/private1" component={Private1} />
-      <Route path="/private2" component={Private2} />
-      <Route path="/private3" component={Private3} />
-      <Route path="/admin" component={Admin} />
+      <Route path="/private1" component={Protected} />
+      <Route path="/private2" component={Protected} />
+      <Route path="/private3" component={Protected} />
+      <Route path="/admin" component={Protected} />
       <Route path="/callback" render={(props) => {
         authService.handleAuthentication(props);
         return null;
