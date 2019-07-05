@@ -5,9 +5,11 @@ import PrivateRoute from './PrivateRoute';
 import {Login} from './auth/Login';
 import authService from './auth/AuthService';
 import history from './history';
-
-const Public = () => <h3>Public</h3>;
-const Protected = () => <h3>Protected</h3>;
+import Public from './Public';
+import Private1 from './Private1';
+import Private2 from './Private2';
+import Private3 from './Private3';
+import Admin from './Admin';
 
 export default () => (
   <Router history={history}>
@@ -31,11 +33,11 @@ export default () => (
         </li>
       </ul>
       <Route path="/public" component={Public} />
-      <Route path="/login" component={Login} />
-      <Route path="/private1" component={Protected} />
-      <Route path="/private2" component={Protected} />
-      <Route path="/private3" component={Protected} />
-      <Route path="/admin" component={Protected} />
+      <PrivateRoute path="/login" component={Login} />
+      <PrivateRoute path="/private1" component={Private1} />
+      <PrivateRoute path="/private2" component={Private2} />
+      <PrivateRoute path="/private3" component={Private3} />
+      <PrivateRoute path="/admin" component={Admin} />
       <Route path="/callback" render={(props) => {
         authService.handleAuthentication(props);
         return null;
